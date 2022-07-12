@@ -1,0 +1,22 @@
+@import 'bootstrap';
+
+h1 {
+    color:  #fff;
+}
+
+.form-label, .form-text {
+    color: white;
+}
+
+#result-container {
+    text-transform: uppercase;
+    color: #fff;
+}
+
+#result-prize-container {
+    color: #fff;
+}
+
+span {
+    color: #fff;
+}
