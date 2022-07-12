@@ -1,4 +1,9 @@
+echo Please specify DB password?
+read password
+
+
 cp app/.env.example app/.env && \
+sed -i "s/DB_PASSWORD=/DB_PASSWORD=$password/" "app/.env" && \
 docker-compose -f docker-compose.yml up -d && \
 docker exec -t feellucky_app composer install && \
 docker exec -t feellucky_app php artisan key:generate && \
