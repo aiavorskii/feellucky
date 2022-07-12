@@ -1,4 +1,4 @@
-cp ./app/.env.example ./app/.env && \
+cp app/.env.example app/.env && \
 docker-compose -f docker-compose-local.yml up -d && \
 docker exec -t feellucky_local_app composer install && \
 docker exec -t feellucky_local_app php artisan key:generate && \
