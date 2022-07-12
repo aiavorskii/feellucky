@@ -1,4 +1,5 @@
 @import 'bootstrap';
+@import '~notification-js/src/notification';
 
 h1 {
     color:  #fff;

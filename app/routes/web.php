@@ -27,10 +27,12 @@ Route::get('/', function () {
 
 Route::post('/user', [UserController::class, 'store']);
 
-Route::post('/user/{user}/link-generate', [UserController::class, 'generateNewLink']);
-Route::post('/user/{user}/get-history', [GameController::class, 'getHistory']);
-Route::post('/user/{user}/feellucky', [GameController::class, 'feelLucky']);
-Route::post('/user/{user}/deactivate-link', [UserController::class, 'deactivateActiveLink']);
+Route::middleware('auth')->group(function () {
+    Route::post('/user/{user}/link-generate', [UserController::class, 'generateNewLink']);
+    Route::post('/user/{user}/get-history', [GameController::class, 'getHistory']);
+    Route::post('/user/{user}/feellucky', [GameController::class, 'feelLucky']);
+    Route::post('/user/{user}/deactivate-link', [UserController::class, 'deactivateActiveLink']);
+});
 
 Route::middleware([TokenAccessMiddleware::class])->group(function () {
     Route::get('/user/{user}', [UserController::class, 'view'])->name('user.view');

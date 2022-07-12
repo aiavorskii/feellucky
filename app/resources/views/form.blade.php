@@ -8,13 +8,13 @@
                 <label for="username" class="form-label">Username</label>
                 <input type="text" class="form-control" name="username" id="username" aria-describedby="username-help"
                     placeholder="Please enter username">
-                <small id="username-help" class="form-text fst-italic">Please enter your username</small>
+                <small id="username-help" class="form-text fst-italic"></small>
             </div>
             <div class="mb-3">
                 <label for="phonenumber" class="form-label">Phone number</label>
                 <input type="text" class="form-control" name="phonenumber" id="phonenumber"
                     aria-describedby="phonenumber-help" placeholder="Please enter your phone number">
-                <small id="phonenumber-help" class="form-text fst-italic">russian numbers will consider invalid</small>
+                <small id="phonenumber-help" class="form-text fst-italic"></small>
             </div>
             <button type="submit" class="btn btn-primary">Register</button>
         </div>

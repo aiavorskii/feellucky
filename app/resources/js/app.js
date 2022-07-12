@@ -27,7 +27,9 @@ import jQuery from 'jquery';
     $('#history-button').on('click', (e) => {
         let userid = $('#userid').val();
         axios.post(`/user/${userid}/get-history`).then((response) => {
-            $('#history-table-wrapper').html(response.data)
+            $('#history-table-wrapper').html(response.data);
+            let historyModal = new Modal(document.getElementById('history-modal'))
+            historyModal.show()
         }).catch((error) => {
             notification.notify( 'error', 'Error occured' );
         });
@@ -36,7 +38,7 @@ import jQuery from 'jquery';
     $('#deactivate-current-link').on('click', (e) => {
         let userid = $('#userid').val();
         let tokenid = $('#tokenid').val();
-        axios.post(`/user/${userid}/feellucky`).then((response) => {
+        axios.post(`/user/${userid}/deactivate-link`, { tokenid }).then((response) => {
             notification.notify( 'success', 'Link deactivated' );
         }).catch((error) => {
             notification.notify( 'error', 'Error occured' );

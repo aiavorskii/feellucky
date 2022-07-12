@@ -23,9 +23,17 @@ class GameController extends Controller
             ->limit(3)
             ->get();
 
+        $lastEntriesFormatted = $lastEntries->map(function($item) {
+            $result = GameService::getResult($item->result);
+            return [
+                'win_loose' => $result,
+                'result' => $item->result,
+                'prize' => $result == GameService::RESULT_WIN ? GameService::getPrize($item->result) : 0,
+            ];
+        })->toArray();
 
         return response(view('history_table', [
-            'gameEntries' => $lastEntries
+            'gameEntries' => $lastEntriesFormatted
         ]));
     }
 

@@ -15,7 +15,8 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'username' => 'required|string|regex:/^\S+$/|min:4|max:255|unique:users,username',
+            'phonenumber' => 'required|numeric|regex:/^(\+38)?[0-9]{10,10}$/',
         ];
     }
 }

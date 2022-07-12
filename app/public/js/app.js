@@ -5310,6 +5310,8 @@ __webpack_require__(/*! @popperjs/core */ "./node_modules/@popperjs/core/lib/ind
     var userid = $('#userid').val();
     axios__WEBPACK_IMPORTED_MODULE_1___default().post("/user/".concat(userid, "/get-history")).then(function (response) {
       $('#history-table-wrapper').html(response.data);
+      var historyModal = new bootstrap__WEBPACK_IMPORTED_MODULE_2__.Modal(document.getElementById('history-modal'));
+      historyModal.show();
     })["catch"](function (error) {
       notification_js__WEBPACK_IMPORTED_MODULE_0___default().notify('error', 'Error occured');
     });
@@ -5317,7 +5319,9 @@ __webpack_require__(/*! @popperjs/core */ "./node_modules/@popperjs/core/lib/ind
   $('#deactivate-current-link').on('click', function (e) {
     var userid = $('#userid').val();
     var tokenid = $('#tokenid').val();
-    axios__WEBPACK_IMPORTED_MODULE_1___default().post("/user/".concat(userid, "/feellucky")).then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default().post("/user/".concat(userid, "/deactivate-link"), {
+      tokenid: tokenid
+    }).then(function (response) {
       notification_js__WEBPACK_IMPORTED_MODULE_0___default().notify('success', 'Link deactivated');
     })["catch"](function (error) {
       notification_js__WEBPACK_IMPORTED_MODULE_0___default().notify('error', 'Error occured');
